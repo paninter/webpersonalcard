@@ -1,6 +1,8 @@
 <template>
   <!-- Footer -->
-  <footer class="text-center text-lg-start bg-light text-muted">
+  <div class="footer-main fixed-bottom">
+    <!-- <b-container> -->
+      <footer class="text-center text-lg-start bg-light text-muted">
     <!-- Section: Social media -->
     <section
       class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
@@ -150,6 +152,9 @@
     </div>
     <!-- Copyright -->
   </footer>
+    <!-- </b-container> -->
+
+  </div>
   <!-- Footer -->
 </template>
 
@@ -157,8 +162,20 @@
 export default {}
 </script>
 
-<style>
-/* .form-control {
-  width: 250px;
-} */
+<style scoped>
+.footer-main {
+  position: relative;
+  bottom: 0;
+  z-index: 90;
+  width: 100%;
+  background-color: #1e1e1e;
+  color: #fff;
+}
+.footer-college {
+  font-size: 1.2rem;
+  background-color: #0b76bc !important;
+  border-color: #0b76bc !important;
+  color: #fff;
+  text-align: center;
+}
 </style>
