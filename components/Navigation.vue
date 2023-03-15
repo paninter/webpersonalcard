@@ -1,7 +1,7 @@
 <template>
   <div class="bg-dark text-center text-white">
     <b-navbar toggleable="lg" type="dark" variant="dark">
-      <Sidebar />
+      <!-- <Sidebar /> -->
 
       <b-navbar-brand href="#">หน้าหลัก</b-navbar-brand>
 
@@ -55,11 +55,7 @@
 </template>
 
 <script>
-import Sidebar from './Sidebar.vue'
 export default {
-  components: {
-    Sidebar,
-  },
 }
 </script>
 
