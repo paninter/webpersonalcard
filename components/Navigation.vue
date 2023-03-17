@@ -1,7 +1,7 @@
 <template>
   <div class="bg-dark text-center text-white">
     <b-navbar toggleable="lg" type="dark" variant="dark">
-      <!-- <Sidebar /> -->
+      <Sidebar />
 
       <b-navbar-brand href="#">หน้าหลัก</b-navbar-brand>
 
@@ -10,7 +10,8 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="#">แนะนำ</b-nav-item>
-          <!-- <b-nav-item href="#" disabled>Disabled</b-nav-item> -->
+          <b-nav-item href="#">เกี่ยวกับเรา</b-nav-item>
+          <b-nav-item href="#">ตัวแทน</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
@@ -55,8 +56,7 @@
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
 <style>

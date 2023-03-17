@@ -22,10 +22,10 @@
       <template #modal-footer>
         <div class="d-flex justify-content-between">
           <b-button variant="ok-primary" block @click="onSubmit()">
-            Edit
+            แก้ไข
           </b-button>
 
-          <b-button variant="light" @click="close()"> Cancle </b-button>
+          <b-button variant="light" @click="close()"> ยกเลิก </b-button>
         </div>
       </template>
     </b-modal>
@@ -75,7 +75,7 @@ export default {
         })
         .then((res) => {
           console.log(res)
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
+          Swal.fire('สำเร็จ!', 'คุณได้แก้ไขแล้ว', 'success')
           this.close()
           this.$emit('getdata')
         })

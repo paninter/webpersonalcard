@@ -22,10 +22,10 @@
       <template #modal-footer>
         <div class="d-flex justify-content-between">
           <b-button variant="ok-primary" block @click="onSubmit()">
-            Create
+            สร้าง
           </b-button>
 
-          <b-button variant="light" @click="close()"> Cancle </b-button>
+          <b-button variant="light" @click="close()"> ยกเลิก </b-button>
         </div>
       </template>
     </b-modal>
@@ -35,6 +35,8 @@
 <script>
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import Cookies from 'js-cookie'
+
 export default {
   data() {
     return {
@@ -55,18 +57,27 @@ export default {
       this.show = false
     },
     onSubmit() {
+      console.log(Cookies.get('token'))
       axios
-        .post('http://localhost:8000/user/create', {
-          name: this.name,
-          email: this.email,
-          facebook: this.facebook,
-          line: this.line,
-          tiktok: this.tiktok,
-          tel: this.tel,
-        })
+        .post(
+          'http://localhost:8000/user/create',
+          {
+            name: this.name,
+            email: this.email,
+            facebook: this.facebook,
+            line: this.line,
+            tiktok: this.tiktok,
+            tel: this.tel,
+          },
+          {
+            headers: {
+              Authorization: Cookies.get('token'),
+            },
+          }
+        )
         .then((res) => {
           console.log(res)
-          Swal.fire('Success!', 'Your file has been created.', 'success')
+          Swal.fire('สำเร็จ!', 'คุณได้สร้างตัวแทนใหม่แล้ว', 'success')
           this.close()
           this.$emit('getdata')
         })

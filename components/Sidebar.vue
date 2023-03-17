@@ -9,63 +9,129 @@
       no-header
       shadow
     >
-      <template #default="{ hide }">
-        <div class="p-3">
-          <b-button @click="hide"
-            ><font-awesome-icon :icon="['fas', 'list']" class="icon alt" />
-          </b-button>
-          <a>Grich @dawdwa</a>
-        </div>
-        <div class="p-3">
-          <b-avatar
-            src="https://placekitten.com/300/300"
-            size="6rem"
-            class="mb-3"
-            badge
-            badge-variant="success"
-          ></b-avatar>
-          <b-row>
-            <b-col sm="2">
-              <label for="text lg">Name:</label>
-            </b-col>
-            <b-col sm="10">
-              <p>adwdwa#1235</p>
-            </b-col>
-          </b-row>
-        </div>
+      <template #footer="{ hide }">
+        <div class="">
+          <b-button variant="primary" block @click="hide"
+            >Close Sidebar</b-button
+          >
+          <div class="profile-sidebar">
+            <div align="center" justify="center">
+              <div class="profile-userpic">
+                <img
+                  src="https://gravatar.com/avatar/31b64e4876d603ce78e04102c67d6144?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png"
+                  class="img-responsive"
+                  alt=""
+                />
+              </div>
+            </div>
+            <!-- END SIDEBAR USERPIC -->
+            <!-- SIDEBAR USER TITLE -->
+            <div class="profile-usertitle">
+              <div class="profile-usertitle-name">Jason Davis</div>
+              <div class="profile-usertitle-job">Developer</div>
+            </div>
+            <!-- END SIDEBAR USER TITLE -->
+            <!-- SIDEBAR BUTTONS -->
+            <div class="profile-userbuttons">
+              <button type="button" class="btn btn-success btn-sm">
+                Follow
+              </button>
+              <button type="button" class="btn btn-danger btn-sm">
+                Message
+              </button>
+            </div>
+            <!-- END SIDEBAR BUTTONS -->
+            <!-- SIDEBAR MENU -->
+            <div class="profile-usermenu">
+              <ul class="nav">
+                <li class="active">
+                  <a href="#">
+                    <i class="glyphicon glyphicon-home"
+                      ><font-awesome-icon
+                        :icon="['fa', 'house']"
+                        class="icon alt"
+                    /></i>
+                    Overview
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://codepen.io/jasondavis/pen/jVRwaG?editors=1000"
+                  >
+                    <i class="glyphicon glyphicon-user"
+                      ><font-awesome-icon
+                        :icon="['fa', 'user']"
+                        class="icon alt"
+                    /></i>
+                    Account Settings
+                  </a>
+                </li>
+                <li>
+                  <a href="#" target="_blank">
+                    <i class="glyphicon glyphicon-ok"
+                      ><font-awesome-icon
+                        :icon="['fa', 'check']"
+                        class="icon alt"
+                    /></i>
+                    Tasks
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="glyphicon glyphicon-flag"
+                      ><font-awesome-icon
+                        :icon="['fa', 'flag']"
+                        class="icon alt"
+                    /></i>
+                    Help
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- END MENU -->
 
-        <nav class="mb-3">
-          <div>
-            <a
-              class="btn text-white m-1"
-              style="background-color: rgb(59 89 152 / 0%)"
-              href="#!"
-            >
-              <font-awesome-icon :icon="['fa', 'house']" class="icon alt" />
-            </a>
-            <b-dropdown id="dropdown-divider" text="Dashboard">
-              <b-dropdown-item-button>First item</b-dropdown-item-button>
-              <b-dropdown-item-button>Second item</b-dropdown-item-button>
-              <b-dropdown-divider></b-dropdown-divider>
-              <b-dropdown-item-button>Separated Item</b-dropdown-item-button>
-            </b-dropdown>
+            <div class="portlet light bordered">
+              <!-- STAT -->
+              <div class="row list-separated profile-stat">
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                  <div class="uppercase profile-stat-title">37</div>
+                  <div class="uppercase profile-stat-text">Projects</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                  <div class="uppercase profile-stat-title">51</div>
+                  <div class="uppercase profile-stat-text">Tasks</div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                  <div class="uppercase profile-stat-title">61</div>
+                  <div class="uppercase profile-stat-text">Uploads</div>
+                </div>
+              </div>
+              <!-- END STAT -->
+              <div>
+                <h4 class="profile-desc-title">About Jason Davis</h4>
+                <span class="profile-desc-text">
+                  Lorem ipsum dolor sit amet diam nonummy nibh dolore.
+                </span>
+                <div class="margin-top-20 profile-desc-link">
+                  <i class="fa fa-globe"></i>
+                  <a href="https://www.apollowebstudio.com"
+                    >apollowebstudio.com</a
+                  >
+                </div>
+                <div class="margin-top-20 profile-desc-link">
+                  <i class="fa fa-twitter"></i>
+                  <a href="https://www.twitter.com/jasondavisfl/"
+                    >@jasondavisfl</a
+                  >
+                </div>
+                <div class="margin-top-20 profile-desc-link">
+                  <i class="fa fa-facebook"></i>
+                  <a href="https://www.facebook.com/">JasonDavisFL</a>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <a
-              class="btn text-white m-1"
-              style="background-color: rgb(59 89 152 / 0%)"
-              href="#!"
-            >
-              <font-awesome-icon :icon="['fa', 'user']" class="icon alt" />
-            </a>
-            <b-dropdown id="dropdown-divider" text="Profile">
-              <b-dropdown-item-button>First item</b-dropdown-item-button>
-              <b-dropdown-item-button>Second item</b-dropdown-item-button>
-              <b-dropdown-divider></b-dropdown-divider>
-              <b-dropdown-item-button>Separated Item</b-dropdown-item-button>
-            </b-dropdown>
-          </div>
-        </nav>
+        </div>
       </template>
     </b-sidebar>
   </div>
@@ -75,25 +141,209 @@ export default {}
 </script>
 
 <style>
-.b-sidebar {
-  background-color: rgb(237, 65, 65) !important;
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  overflow-x: hidden;
-  /* padding-top: 20px; */
+body {
+  background: #faf4f1;
 }
-.btn-block {
-  display: block;
-  width: 20%;
+
+/* Profile container */
+.profile {
+  margin: 20px 0;
 }
-.input1 {
-  border-radius: 30px;
-  height: 25px;
-  width: 100px;
-  margin-right: 10px;
+
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+
+.profile-userpic img {
+  float: none;
+  margin: 0 auto;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+}
+
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+/* .profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
+} */
+
+/* .profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
+} */
+
+/* .profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+} */
+
+/* .profile-userbuttons .btn:last-child {
+  margin-right: 0px;
+} */
+
+/* .profile-usermenu {
+  margin-top: 30px;
+} */
+
+/* .profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+} */
+
+/* .profile-usermenu ul li:last-child {
+  border-bottom: none;
+} */
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 15px;
+  font-size: 20px;
+}
+
+/* .profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+} */
+
+/* .profile-usermenu ul li.active {
+  border-bottom: none;
+} */
+
+/* .profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+} */
+
+/* Profile Content */
+/* .profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+} */
+
+/* a,
+button,
+code,
+div,
+img,
+input,
+label,
+li,
+p,
+pre,
+select,
+span,
+svg,
+table,
+td,
+textarea,
+th,
+ul {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+} */
+.dashboard-stat,
+/* .portlet {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+} */
+.portlet {
+  margin-top: 0;
+  margin-bottom: 25px;
+  padding: 0;
+  border-radius: 4px;
+}
+.portlet.bordered {
+  border-left: 2px solid #e6e9ec !important;
+}
+.portlet.light {
+  padding: 12px 20px 15px;
+  background-color: #fff;
+}
+.portlet.light.bordered {
+  border: 1px solid #e7ecf1 !important;
+}
+.list-separated {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.profile-stat {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f4f7;
+}
+.profile-stat-title {
+  color: #7f90a4;
+  font-size: 25px;
+  text-align: center;
+}
+.uppercase {
+  text-transform: uppercase !important;
+}
+
+.profile-stat-text {
+  color: #5b9bd1;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+.profile-desc-title {
+  color: #7f90a4;
+  font-size: 17px;
+  font-weight: 600;
+}
+.profile-desc-text {
+  color: #7e8c9e;
+  font-size: 14px;
+}
+.margin-top-20 {
+  margin-top: 20px !important;
+}
+[class*=' fa-']:not(.fa-stack),
+[class*=' glyphicon-'],
+[class*=' icon-'],
+[class^='fa-']:not(.fa-stack),
+[class^='glyphicon-'],
+[class^='icon-'] {
+  display: inline-block;
+  line-height: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+.profile-desc-link i {
+  width: 22px;
+  font-size: 19px;
+  color: #abb6c4;
+  margin-right: 5px;
 }
 </style>
+-->
