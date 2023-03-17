@@ -27,14 +27,9 @@
                 <div align="center" justify="center" class="mt-3">
                   <b-col cols="12" sm="10">
                     <div>
-                      <b-img
-                        src="../assets/image/name1.png"
-                        alt="name1"
-                        class="mt-4"
-                        width="400px"
-                      >
-                        <b-form-input id="name" autocomplete="false" />
-                      </b-img>
+                      <div class="name mt-2">
+                        <b-input v-model="name" disabled autocomplete="false" />
+                      </div>
                     </div>
                   </b-col>
                   <b-img
@@ -86,88 +81,27 @@
                   </figure>
 
                   <b-row align="center" justify="center">
-                    <div class="mt-4">
-                      <b-img
-                        src="../assets/image/face.png"
-                        alt="face"
-                        width="400px"
-                      >
-                        <b-form-input
-                          id="facebook"
-                          placeholder="facebook"
-                          autocomplete="false"
-                        />
-                      </b-img>
-                      <b-img
-                        src="../assets/image/linee.png"
-                        alt="linee"
-                        width="400px"
-                      >
-                        <b-form-input
-                          id="line"
-                          placeholder="line"
-                          autocomplete="false"
-                        />
-                      </b-img>
-                      <b-img
-                        src="../assets/image/tiktok.png"
-                        alt="tiktok"
-                        width="400px"
-                      >
-                        <b-form-input
-                          id="textarea"
-                          placeholder="tiktok"
-                          autocomplete="false"
-                        />
-                      </b-img>
-                      <b-img
-                        src="../assets/image/phone.png"
-                        alt="phone"
-                        width="400px"
-                      >
+                    <div class="mt-2">
+                      <div class="facebook">
                         <b-input
-                          id="phone"
-                          placeholder="phone"
                           autocomplete="false"
+                          v-model="facebook"
+                          disabled
                         />
-                      </b-img>
-
-                      <!-- <b-input
-                        id="textarea"
-                        placeholder="Facebook"
-                        outlined
-                        dense
-                        color="blue"
-                        autocomplete="false"
-                        class="mt-6"
-                      />
-                      <b-input
-                        id="textarea"
-                        placeholder="Line"
-                        outlined
-                        dense
-                        color="blue"
-                        autocomplete="false"
-                        class="mt-6"
-                      />
-                      <b-input
-                        id="textarea"
-                        placeholder="Tiktok"
-                        outlined
-                        dense
-                        color="blue"
-                        autocomplete="false"
-                        class="mt-6"
-                      />
-                      <b-input
-                        id="textarea"
-                        placeholder="Phone"
-                        outlined
-                        dense
-                        color="blue"
-                        autocomplete="false"
-                        class="mt-6"
-                      /> -->
+                      </div>
+                      <div class="line mt-2">
+                        <b-input autocomplete="false" v-model="line" disabled />
+                      </div>
+                      <div class="tiktok mt-2">
+                        <b-input
+                          autocomplete="false"
+                          v-model="tiktok"
+                          disabled
+                        />
+                      </div>
+                      <div class="phone mt-2">
+                        <b-input autocomplete="false" v-model="tel" disabled />
+                      </div>
                     </div>
                   </b-row>
                 </div>
@@ -181,6 +115,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   data() {
     return {
@@ -189,8 +125,31 @@ export default {
       facebook: '',
       line: '',
       tiktok: '',
+      users: [],
+      id: 0,
       tel: '',
     }
+  },
+  mounted() {
+    this.getData()
+  },
+
+  methods: {
+    getData() {
+      axios
+        .get('http://localhost:8000/user/9')
+        .then((res) => {
+          this.name = res.data.user.name
+          this.email = res.data.user.email
+          this.tel = res.data.user.tel
+          this.facebook = res.data.user.facebook
+          this.tiktok = res.data.user.tiktok
+          this.line = res.data.user.line
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
   },
 }
 </script>
@@ -203,11 +162,51 @@ export default {
 .row {
   margin: 0px;
 }
-.b-form-input {
+/* .b-form-input {
   border-radius: 30px;
   height: 40px;
   width: auto;
   margin-left: 95px;
   margin-right: 10px;
+} */
+.line {
+  background-image: url('../assets/image/linee.png');
+  height: auto;
+  width: 400px;
+  background-size: cover;
+}
+.name {
+  background-image: url('../assets/image/name1.png');
+  height: auto;
+  width: 400px;
+  background-size: cover;
+}
+.facebook {
+  background-image: url('../assets/image/face.png');
+  height: auto;
+  width: 400px;
+  background-size: cover;
+}
+.phone {
+  background-image: url('../assets/image/phone.png');
+  height: auto;
+  width: 400px;
+  background-size: cover;
+}
+.tiktok {
+  background-image: url('../assets/image/tiktok.png');
+  height: auto;
+  width: 400px;
+  background-size: cover;
+}
+.form-control {
+  height: 73px;
+  border-radius: 35px;
+  width: 400px;
+  background-color: #fff0;
+  margin-left: 90px;
+  border: 1px solid #ced4da00;
+  padding: 0.45rem 2rem;
+  font-size: x-large;
 }
 </style>
