@@ -7,8 +7,55 @@
             <div class="row no-gutters">
               <div class="col-lg-6">
                 <div class="p-5">
-                  <div class="mb-5">
+                  <div class="mb-4 text-center">
                     <h3 class="h4 font-weight-bold text-theme">เข้าสู่ระบบ</h3>
+                  </div>
+                  <div class="text-center mb-3">
+                    <p>ลงชื่อด้วย</p>
+
+                    <a
+                      class="btn text-white btn-floating m-1"
+                      style="background-color: #3b5998"
+                      href="#!"
+                      role="button"
+                      ><i class="fab fa-facebook-f"></i
+                      ><font-awesome-icon
+                        :icon="['fab', 'facebook']"
+                        class="icon alt"
+                    /></a>
+
+                    <a
+                      class="btn text-white btn-floating m-1"
+                      style="background-color: #000000"
+                      href="#!"
+                      role="button"
+                      ><i class="fab fa-twitter"></i
+                      ><font-awesome-icon
+                        :icon="['fab', 'tiktok']"
+                        class="icon alt"
+                    /></a>
+
+                    <a
+                      class="btn text-white btn-floating m-1"
+                      style="background-color: #ff0018"
+                      href="#!"
+                      role="button"
+                      ><i class="fab fa-instagram"></i
+                      ><font-awesome-icon
+                        :icon="['fab', 'instagram']"
+                        class="icon alt"
+                    /></a>
+
+                    <a
+                      class="btn text-white btn-floating m-1"
+                      style="background-color: #40d71f"
+                      href="#!"
+                      role="button"
+                      ><i class="fab fa-github"></i
+                      ><font-awesome-icon
+                        :icon="['fab', 'line']"
+                        class="icon alt"
+                    /></a>
                   </div>
 
                   <!-- <h6 class="h5 mb-0">Welcome back!</h6>
@@ -33,7 +80,7 @@
                       <input
                         type="password"
                         class="form-control"
-                        placeholder="Enter email"
+                        placeholder="Password"
                         id="exampleInputPassword1"
                       />
                       <div class="mt-2">
@@ -55,12 +102,9 @@
                 <div class="account-block rounded-right">
                   <div class="overlay rounded-right"></div>
                   <div class="account-testimonial">
-                    <!-- <h4 class="text-white mb-4">This beautiful theme yours!</h4>
-                    <p class="lead text-white">
-                      "Best investment i made for a long time. Can only
-                      recommend it for other users."
-                    </p>
-                    <p>- Admin User</p> -->
+                    <h4 class="text-white mb-4">เข้าสู่ระบบ</h4>
+                    <p class="lead text-white">เป็นตัวแทน</p>
+                    <p>User</p>
                   </div>
                 </div>
               </div>
@@ -72,7 +116,7 @@
 
         <p class="text-muted text-center mt-3 mb-0">
           ไม่สามารถเข้าสู่ระบบได้หรือ ?
-          <a href="" class="text-primary ml-1">ลงทะเบียน</a>
+          <a href="/register" class="text-primary ml-1">ลงทะเบียน</a>
         </p>
 
         <!-- end row -->

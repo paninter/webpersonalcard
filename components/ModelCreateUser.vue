@@ -1,6 +1,15 @@
 <template>
   <div>
     <b-modal v-model="show" id="modal-1" title="สร้าง">
+      <div align="center" justify="center">
+        <b-input-group>
+          <b-form-file
+            id="form-image"
+            accept="image/*"
+            v-model="img"
+          ></b-form-file>
+        </b-input-group>
+      </div>
       <b-form-group id="input-group-2" label="ชื่อ" label-for="input-2">
         <b-form-input v-model="name"></b-form-input>
       </b-form-group>
@@ -40,9 +49,18 @@ import Cookies from 'js-cookie'
 export default {
   data() {
     return {
+      mainProps: {
+        blank: true,
+        blankColor: '#777',
+        width: 75,
+        height: 75,
+        class: 'm1',
+      },
       show: false,
       name: '',
       email: '',
+      img: null,
+      imgqr: null,
       facebook: '',
       tiktok: '',
       tel: '',
@@ -56,13 +74,16 @@ export default {
     close() {
       this.show = false
     },
+
     onSubmit() {
-      console.log(Cookies.get('token'))
+      // console.log(Cookies.get('token'))
       axios
         .post(
           'http://localhost:8000/user/create',
           {
             name: this.name,
+            img: this.img,
+            imgqr: this.imgqr,
             email: this.email,
             facebook: this.facebook,
             line: this.line,

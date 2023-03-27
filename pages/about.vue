@@ -2,6 +2,12 @@
   <div align="center" justify="center">
     <b-container>
       <b-col cols="12" sm="12">
+        <img :src="imageUrl" v-if="imageUrl" />
+        <img
+          v-bind:src="'data:image/png;base64,' + `${imageData}`"
+          v-if="imageUrl"
+        />
+        <!-- <span>{{ imageUrl }}</span> -->
         <b-card :src="'../assets/image/BG.png'" class="bg-img row">
           <b-row>
             <b-col class="container" cols="6" md="6">
@@ -126,29 +132,50 @@ export default {
       line: '',
       tiktok: '',
       users: [],
+      imageData: [],
       id: 0,
       tel: '',
     }
   },
   mounted() {
     this.getData()
+    this.getImg()
   },
 
   methods: {
-    getData() {
-      axios
-        .get('http://localhost:8000/user/9')
-        .then((res) => {
+    async getData() {
+      try {
+        await axios.get('http://localhost:8000/user/37').then((res) => {
           this.name = res.data.user.name
           this.email = res.data.user.email
           this.tel = res.data.user.tel
           this.facebook = res.data.user.facebook
           this.tiktok = res.data.user.tiktok
           this.line = res.data.user.line
+          this.img = res.data.user.img
+          console.log(res.data.user)
         })
-        .catch((error) => {
-          console.log(error)
+      } catch (error) {
+        console.log(error)
+      }
+    },
+
+    async getImg() {
+      try {
+        await axios.get('http://localhost:8000/img').then((res) => {
+          const imageData = res.data.toString('base64')
+          // console.log(imageData)
+          return { imageData }
         })
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  },
+  computed: {
+    imageUrl() {
+      // console.log(imageData)
+      return `data:image/png;base64,${this.imageData}`
     },
   },
 }

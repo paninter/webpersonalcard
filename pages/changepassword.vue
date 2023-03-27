@@ -121,7 +121,12 @@
                 <div class="d-flex justify-content-between">
                   <div><h5>เปลี่ยนรหัสผ่าน</h5></div>
                   <div>
-                    <b-button variant="outline-danger">ยกเลิก</b-button>
+                    <b-button
+                      pill
+                      variant="outline-primary"
+                      onclick="window.history.back();"
+                      >ย้อนกลับ</b-button
+                    >
                     <b-button variant="outline-primary" @click="submit()"
                       >ยืนยัน</b-button
                     >
