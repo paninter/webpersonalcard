@@ -3,10 +3,10 @@
     <b-container>
       <b-col cols="12" sm="12">
         <img :src="imageUrl" v-if="imageUrl" />
-        <img
+        <!-- <img
           v-bind:src="'data:image/png;base64,' + `${imageData}`"
           v-if="imageUrl"
-        />
+        /> -->
         <!-- <span>{{ imageUrl }}</span> -->
         <b-card :src="'../assets/image/BG.png'" class="bg-img row">
           <b-row>
@@ -22,8 +22,9 @@
                   />
                 </b-col>
                 <div align="center" class="mt-4">
+                  <!-- <img :src="imageUrl" /> -->
                   <b-img
-                    src="../assets/image/กรอบพร้อมfontรูป.png"
+                    :src="require(`../picture/${imgname}`)"
                     class="rounded-lg"
                     alt="กรอบพร้อมfontรูป.png"
                     width="auto"
@@ -132,14 +133,17 @@ export default {
       line: '',
       tiktok: '',
       users: [],
-      imageData: [],
+      imageData: null,
+      imageUrl: '',
       id: 0,
       tel: '',
+      imgname: '0001.png',
     }
   },
   mounted() {
     this.getData()
-    this.getImg()
+    // this.getImg()
+    // this.fetchImage()
   },
 
   methods: {
@@ -159,25 +163,34 @@ export default {
         console.log(error)
       }
     },
-
-    async getImg() {
+    async fetchImage() {
       try {
-        await axios.get('http://localhost:8000/img').then((res) => {
-          const imageData = res.data.toString('base64')
-          // console.log(imageData)
-          return { imageData }
-        })
+        const res = await axios.get('http://localhost:8000/img')
+        this.imageUrl = res.data
+        console.log(res.data)
       } catch (error) {
         console.log(error)
       }
     },
+
+    // async getImg() {
+    //   try {
+    //     await axios.get('http://localhost:8000/img').then((res) => {
+    //       const imageData = res.data.toString('base64')
+    //       // console.log(imageData)
+    //       return { imageData }
+    //     })
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // },
   },
-  computed: {
-    imageUrl() {
-      // console.log(imageData)
-      return `data:image/png;base64,${this.imageData}`
-    },
-  },
+  // computed: {
+  //   imageUrl() {
+  //     // console.log(imageData)
+  //     return `data:image/png;base64,${this.imageData}`
+  //   },
+  // },
 }
 </script>
 
