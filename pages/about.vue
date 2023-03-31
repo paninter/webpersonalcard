@@ -165,7 +165,7 @@ export default {
     },
     async fetchImage() {
       try {
-        const res = await axios.get('http://localhost:8000/img')
+        const res = await axios.get('http://localhost:8000//img/:file(*)')
         this.imageUrl = res.data
         console.log(res.data)
       } catch (error) {
